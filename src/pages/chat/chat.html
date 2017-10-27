@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Online Chatting</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list >
+    <li style="background-color: #98ee99" ion-item *ngFor="let text of textList">
+      {{text}}
+    </li>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <table style="height: 80px; text-align: center" >
+    <tr>
+      <td style="width: 200px">
+        <!--<input style="width:200px; height: 80%; border:1px solid #0c0000" (keypress)="onKeypress($event,input)" #input>-->
+        <ion-input style="width:250px; height: 80%; border:1px solid #0c0000" (keypress)="onKeypress($event,input)" #input></ion-input>
+      </td>
+      <td>
+        <button ion-button (click)="onClick(input)" class="button_enter">Enter</button>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">
+        <input type="file" class="upload" ng2FileSelect [uploader]="uploader" (change)="upload()">
+      </td>
+    </tr>
+  </table>
+
+
+</ion-footer>
+
+
+<!--The content below is only a placeholder and can be replaced.-->
+
+
+<!--<div class="display">-->
+  <!--<ul>-->
+    <!--<li *ngFor="let text of textList">-->
+      <!--{{text}}-->
+    <!--</li>-->
+
+  <!--</ul>-->
+<!--</div>-->
+
+<!--<div class="div_margin">-->
+
+<!--</div>-->
+
+<!--<table>-->
+  <!--<tr>-->
+    <!--<td class="input_td">-->
+      <!--<input (keypress)="onKeypress($event,input)" #input>-->
+    <!--</td>-->
+
+    <!--<td class="button_td">-->
+      <!--<button (click)="onClick(input)" class="button_enter">Enter</button>-->
+      <!--<input type="file" class="upload" name="single" ng2FileSelect [uploader]="uploader" (change)="upload()">-->
+    <!--</td>-->
+  <!--</tr>-->
+<!--</table>-->
+
+
