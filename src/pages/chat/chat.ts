@@ -14,14 +14,16 @@ import {FileUploader} from 'ng2-file-upload';
 
 export class ChatPage {
 
-
   result: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private http: HttpClient) {}
+  constructor(private http: HttpClient, public navCtrl: NavController, public navParams: NavParams) {
+    this.user_initiate = this.navParams.get('user_initiate');
+    this.user_finish = this.navParams.get('user_finish');
+  }
 
-  public title = 'Online Chat Demo: ';
   public textList = new Array();
-  public username = 'sun';
+  public user_initiate = '';
+  public user_finish = '';
   public input = null;
   public uploader: FileUploader = new FileUploader({
     url: 'http://localhost:3000/mobileupload',
@@ -33,10 +35,12 @@ export class ChatPage {
     this.input = input;
     if (input.value !== '') {
       const obj = {
-        'username': '',
+        'user_initiate': '',
+        'user_finish': '',
         'message' : ''
-      }
-      obj.username = this.username;
+      };
+      obj.user_initiate = this.user_initiate;
+      obj.user_finish = this.user_finish;
       obj.message = input.value;
       const body = JSON.stringify(obj);
       this.post(body);
@@ -59,7 +63,7 @@ export class ChatPage {
   // display messages or pop out warning
   display(boolean) {
     if (boolean) {
-      this.textList.push(this.username + ':  ' + this.input.value);
+      this.textList.push(this.user_initiate + ':  ' + this.input.value);
       this.input.value = '';
     }else {
       alert('Message not sent to server');
@@ -67,17 +71,20 @@ export class ChatPage {
   }
 
   // connect to backend server
-  get() {
-    this.http.get('http://localhost:3000/messages').subscribe(data => {
+  showHistory() {
+    this.textList = [];
+    const url = 'http://localhost:3000/messages?user_initiate=' + this.user_initiate
+      + '&user_finish=' + this.user_finish + '';
+    this.http.get(url).subscribe(data => {
       // Read the result field from the JSON response.
-      this.result = data['result'];
+      for (const i in data) {
+        if (data[i] != null) {
+          this.textList.push(data[i].user_initiate + ':  ' + data[i].message);
+        }
+      }
     });
-    if (this.result === 'ok') {
-      return true;
-    }else {
-      return false;
-    }
   }
+
 
   post(body) {
     this.http.post('http://localhost:3000/messages', body, {
@@ -91,27 +98,5 @@ export class ChatPage {
         this.display(false);
       }
     });
-  }
-
-
-
-  // constructor(public navCtrl: NavController, public navParams: NavParams) {
-  //   this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
-  //   'american-football', 'boat', 'bluetooth', 'build'];
-  //
-  //   this.items = [];
-  //   for(let i = 1; i < 11; i++) {
-  //     this.items.push({
-  //       title: 'Item ' + i,
-  //       note: 'This is item #' + i,
-  //       icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-  //     });
-  //   }
-  // }
-
-  itemTapped(event, item) {
-    // this.navCtrl.push(ItemDetailsPage, {
-    //   item: item
-    // });
   }
 }

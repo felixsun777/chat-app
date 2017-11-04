@@ -2,8 +2,10 @@ import { Component, ViewChild } from '@angular/core';
 
 import { Platform, MenuController, Nav } from 'ionic-angular';
 
-import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ChatPage } from '../pages/chat/chat';
+import { LoginPage } from '../pages/login/login';
+import { FriendsPage } from '../pages/friends/friends';
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -16,7 +18,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   // make HelloIonicPage the root (or first) page
-  rootPage = HelloIonicPage;
+  rootPage = LoginPage;
   pages: Array<{title: string, component: any}>;
 
   constructor(
@@ -29,7 +31,8 @@ export class MyApp {
 
     // set our app's pages
     this.pages = [
-      { title: 'Welcome Page', component: HelloIonicPage },
+      { title: 'Login', component: LoginPage },
+      { title: 'Friends', component: FriendsPage },
       { title: 'Online Chatting', component: ChatPage }
     ];
   }

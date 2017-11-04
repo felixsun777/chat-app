@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar side="left">
+    <ion-title></ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <div style="text-align:center">
+    <h1>
+      Friend List
+    </h1>
+  </div>
+
+  <ion-list>
+    <li style="text-align: center;background-color: #98ee99;margin-top: 1em;height: 1.5em;font-size: 20px;color: #000;" ion-item *ngFor="let friend of friends" (click)="onSelect(friend)">
+      {{friend}}
+      <br>
+    </li>
+  </ion-list>
+</ion-content>
+
+
+
+<!--<h2>-->
+  <!--<ul class="display">-->
+    <!--<li *ngFor="let friend of friends" (click)="onSelect(friend)">-->
+      <!--{{friend}}-->
+    <!--</li>-->
+  <!--</ul>-->
+<!--</h2>-->

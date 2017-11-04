@@ -1,19 +1,19 @@
-<ion-menu [content]="content">
+<!--<ion-menu [content]="content">-->
 
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Pages</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!--&lt;!&ndash;<ion-header>&ndash;&gt;-->
+    <!--&lt;!&ndash;<ion-toolbar>&ndash;&gt;-->
+      <!--&lt;!&ndash;<ion-title>Pages</ion-title>&ndash;&gt;-->
+    <!--&lt;!&ndash;</ion-toolbar>&ndash;&gt;-->
+  <!--&lt;!&ndash;</ion-header>&ndash;&gt;-->
 
-  <ion-content>
-    <ion-list>
-      <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
-      </button>
-    </ion-list>
-  </ion-content>
+  <!--&lt;!&ndash;<ion-content>&ndash;&gt;-->
+    <!--&lt;!&ndash;<ion-list>&ndash;&gt;-->
+      <!--&lt;!&ndash;<button ion-item *ngFor="let p of pages" (click)="openPage(p)">&ndash;&gt;-->
+        <!--&lt;!&ndash;{{p.title}}&ndash;&gt;-->
+      <!--&lt;!&ndash;</button>&ndash;&gt;-->
+    <!--&lt;!&ndash;</ion-list>&ndash;&gt;-->
+  <!--&lt;!&ndash;</ion-content>&ndash;&gt;-->
 
-</ion-menu>
+<!--</ion-menu>-->
 
 <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

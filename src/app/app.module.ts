@@ -3,8 +3,9 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ChatPage } from '../pages/chat/chat';
+import { LoginPage } from '../pages/login/login';
+import { FriendsPage } from '../pages/friends/friends';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -16,7 +17,8 @@ import { FileUploadModule } from 'ng2-file-upload' ;
 @NgModule({
   declarations: [
     MyApp,
-    HelloIonicPage,
+    LoginPage,
+    FriendsPage,
     ChatPage
   ],
   imports: [
@@ -29,7 +31,8 @@ import { FileUploadModule } from 'ng2-file-upload' ;
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HelloIonicPage,
+    LoginPage,
+    FriendsPage,
     ChatPage
   ],
   providers: [

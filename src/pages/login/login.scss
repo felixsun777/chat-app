@@ -1,0 +1,36 @@
+input {
+  width: 90%;
+  height:100%;
+  border-radius: 3px;
+  font-family: sans-serif;
+  font-size:22px;
+}
+
+table {
+  height:70px ;
+  text-align: center;
+  padding: inherit;
+}
+
+
+tr {
+  text-align: center;
+
+}
+
+td {
+  text-align: center;
+  width:50%;
+  font-size: larger;
+  color: #444;;
+}
+
+button {
+  width:60%;
+  height:150%;
+  background-color: #369;
+  border-radius: 5px;
+  font-size: medium;
+  color: white;
+}
+

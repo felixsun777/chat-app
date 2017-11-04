@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Online Chatting Demo</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div style="text-align:center">
+    <br><br>
+    <br>
+    <h1>
+      Welcome to {{title}}
+    </h1>
+    <br>
+    <h6>Please Login first</h6>
+    <br><br><br>
+
+
+
+    <table align="center">
+      <tr>
+        <td>Username:</td>
+        <td><input type="text" #username></td>
+      </tr>
+      <br><br>
+      <tr>
+        <td>Password:</td>
+        <td><input type="password" (keypress)="onKeypress($event,username,password)" #password></td>
+      </tr>
+      <br><br><br><br><br>
+      <tr>
+        <td colspan=2><button (click)="submitClick(username,password)">Submit</button></td>
+        <td></td>
+      </tr>
+      <br><br>
+      <tr>
+        <td colspan=2><button (click)="resetClick(username,password)">Reset</button></td>
+        <td></td>
+      </tr>
+    </table>
+
+
+
+  </div>
+
+
+</ion-content>
+
+
